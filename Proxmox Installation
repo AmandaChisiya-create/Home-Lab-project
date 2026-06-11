@@ -1,0 +1,36 @@
+# Proxmox VE Installation Guide
+
+**Project:** The Home Lab 
+**Author:** Strae  
+**Date:** June 11, 2026
+
+---
+
+## Overview
+This document logs the step-by-step bare-metal installation of Proxmox Virtual Environment (PVE) on an old laptop to serve as the primary host for my home lab.
+
+## Host Hardware Specs
+* **CPU:** 8 x Intel(R) Core(TM) i7-2670QM CPU @ 2.20GHz (1 Socket)
+* **Hostname:** `straehomelab`
+* **Network:** Wired Connection (Ethernet to Router)
+
+---
+
+## Deployment Steps
+
+### Step 1: Download the Installation Media
+* Downloaded the official Proxmox VE ISO file directly from the Proxmox Downloads Page: https://www.proxmox.com/en/downloads/proxmox-virtual-environment/iso
+
+### Step 2: Prepare the Bootable USB Drive
+* **Flashing Tool:** BalenaEtcher
+* **Storage Media:** 32 GB USB Flash Drive
+* **Action:** Flashed the Proxmox ISO to the USB drive and verified the write completion.
+
+### Step 3: OS Installation
+* Connected the target laptop directly to the router via an **Ethernet cable** to ensure stable network provisioning and automated DHCP configuration during setup.
+* Booted the laptop from the USB drive and executed the Proxmox VE graphical installer.
+* Configured the system hostname as `straehomelab`.
+
+### Step 4: Verification
+* Installation completed successfully. The system boots into the Proxmox web interface environment, correctly identifying the 8-thread Intel i7 processor.
+
