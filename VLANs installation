@@ -1,0 +1,58 @@
+## Goal
+
+Build a cybersecurity home lab in Proxmox with the following VLANs:
+
+| VLAN | Purpose | VM |
+|--------|---------|---------|
+| Router/Firewall | Network security and routing | pfSense |
+| Attack | Offensive security testing | Kali Linux |
+| Users | Simulated endpoint | Windows 11 |
+| Server | Internal services | Ubuntu Server |
+| DMZ | Public-facing services | Alpine Linux |
+
+## Work Completed
+
+- Installed Proxmox on an old laptop.
+- Downloaded VM installation media directly to the Proxmox host.
+- Created:
+  - Kali Linux VM
+  - Ubuntu Server VM
+
+## Resource Adjustment
+
+Initial RAM allocation:
+
+- Kali Linux: 4 GB
+- Ubuntu Server: 4 GB
+
+This left too little memory for additional VMs.
+
+Adjusted to:
+
+- Kali Linux: 2 GB
+- Ubuntu Server: 2 GB
+
+## Notes
+
+### Downloading ISOs Directly on Proxmox
+
+**GUI Method**
+
+`Datacenter → local → ISO Images → Download from URL`
+
+**CLI Method**
+
+```bash
+cd /var/lib/vz/template/iso
+wget <ISO_URL>
+```
+
+## Planned Network
+
+```text
+pfSense
+├── VLAN 10 - Attack (Kali)
+├── VLAN 20 - Users (Windows 11)
+├── VLAN 30 - Server (Ubuntu Server)
+└── VLAN 40 - DMZ (Alpine Linux)
+```
